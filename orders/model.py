@@ -16,7 +16,7 @@ class Order(Base):
 
     
     # Define relationships
-    customer = relationship("Customer", back_populates="orders")
+    customer = relationship("Customer", back_populates="orders") 
     order_medicines = relationship("OrderMedicine", back_populates="order")
     invoice = relationship("Invoice", back_populates="order", uselist=False) #invoice is created so  it can be linked to the order
 
