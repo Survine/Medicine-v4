@@ -11,8 +11,8 @@ class Medicine(Base):
     price = Column(Float)
 
     # Define relationships
-    order_medicines = relationship("OrderMedicine", back_populates="medicine") 
-    stock = relationship("Stock", back_populates="medicine", uselist=False)
+    # order_medicines = relationship("OrderMedicine", back_populates="medicine") 
+    # stock = relationship("Stock", back_populates="medicine", uselist=False)
 
 
     # relationships are created so that we can access the data from the other tables using orm like order_medicines.medicine

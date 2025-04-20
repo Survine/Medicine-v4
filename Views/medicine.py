@@ -14,9 +14,8 @@ def fetch_medicine_by_name(db: Session, name: str) -> Optional[Medicine]:
     return db.query(Medicine).filter(Medicine.name == name).first()
 
 
-def fetch_all_medicines(db: Session, skip: int = 0, limit: int = 100) -> List[Medicine]:
-    return db.query(Medicine).offset(skip).limit(limit).all()
-
+def fetch_all_medicines(db: Session) -> List[Medicine]:
+    return db.query(Medicine).all()
 
 def create_new_medicine(db: Session, medicine_data: MedicineCreate) -> Medicine:
     new_medicine = Medicine(
