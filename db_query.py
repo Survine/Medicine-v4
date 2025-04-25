@@ -11,11 +11,7 @@ def delete_database():
         print(f"Database '{db_path}' has been deleted.")
     else:
         print(f"Database '{db_path}' does not exist.")
-# === Run selected action here ===
+
 if __name__ == "__main__":
-    # Uncomment what you need to run:
-    
-    # drop_medicine_table()
     delete_database()
-    # show_tables()
     pass
