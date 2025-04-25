@@ -10,7 +10,7 @@ class Stock(Base):
     medicine_id = Column(Integer, ForeignKey("medicines.id"), unique=True)
     quantity = Column(Integer, default=0)
     expiry_date = Column(DateTime)
-    admin_id = Column(Integer, ForeignKey("users.id"))  # Admin who last updated
+    # admin_id = Column(Integer, ForeignKey("users.id"))  # Admin who last updated
     last_updated = Column(DateTime(timezone=True), onupdate=func.now())
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     

@@ -1,5 +1,5 @@
 import os
-from sqlalchemy import inspect
+# from sqlalchemy import inspect
 from databases.database import engine, Base
 # from models.medicine import Medicine
 # from models.order import Order, OrderMedicine
