@@ -13,8 +13,8 @@ class User(Base):
     is_admin = Column(Boolean, default=False)
     
     # Define relationships
-    # invoices = relationship("Invoice", back_populates="user")
+    invoices = relationship("Invoice", back_populates="user")
     
     # For admin users
-    # stocks = relationship("Stock", back_populates="admin")
+    stocks = relationship("Stock", back_populates="admin")
     

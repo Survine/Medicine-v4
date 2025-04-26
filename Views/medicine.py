@@ -4,6 +4,7 @@ from sqlalchemy.orm import Session
 
 from Models.medicine import Medicine
 from Schemas.medicine import MedicineCreate, MedicineUpdate
+from Models.stock import Stock
 
 
 def fetch_medicine_by_id(db: Session, medicine_id: int) -> Optional[Medicine]:
@@ -34,8 +35,8 @@ def create_new_medicine(db: Session, medicine_data: MedicineCreate) -> Medicine:
     
     db.commit()
     db.refresh(new_medicine)
+    db.refresh(new_stock)
     return new_medicine
-
 
 def update_existing_medicine(db: Session, medicine_id: int, medicine_data: MedicineUpdate) -> Medicine:
     existing_medicine = fetch_medicine_by_id(db, medicine_id)
