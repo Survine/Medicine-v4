@@ -19,7 +19,7 @@ class StockUpdate(StockBase):
 class StockInDBBase(StockBase):
     id: int
     admin_id: Optional[int]  # Admin who last updated
-    last_updated: datetime
+    last_updated: Optional[datetime]
     created_at: datetime
 
     class Config:
