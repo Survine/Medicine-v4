@@ -6,7 +6,7 @@ from sqlalchemy.orm import Session, joinedload
 
 from Models.invoice import Invoice
 from Schemas.invoice import InvoiceCreate, InvoiceUpdate
-from Models.order import Order
+from Models.order import Order,OrderStatus
 
 
 def fetch_invoice_by_id(db: Session, invoice_id: int) -> Optional[Invoice]:
@@ -60,7 +60,7 @@ def create_invoice(db: Session, invoice_in: InvoiceCreate, user_id: int) -> Invo
     )
     
     # Update order status to completed
-    order.status = "completed"
+    order.status = OrderStatus.COMPLETED  # Fixed this line
     db.add(order)
     
     db.add(db_invoice)
