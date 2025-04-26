@@ -16,5 +16,5 @@ class Invoice(Base):
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     
     # Define relationships
-    order = relationship("Order", back_populates="invoice")
-    user = relationship("User", back_populates="invoices")
+    # order = relationship("Order", back_populates="invoice")
+    # user = relationship("User", back_populates="invoices")

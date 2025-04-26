@@ -23,6 +23,15 @@ def create_new_medicine(db: Session, medicine_data: MedicineCreate) -> Medicine:
         price=medicine_data.price,
     )
     db.add(new_medicine)
+    db.flush()  # Get the ID before committing
+    
+    # Create stock record
+    new_stock = Stock(
+        medicine_id=new_medicine.id,
+        quantity=0  # Default to 0, can be updated later
+    )
+    db.add(new_stock)
+    
     db.commit()
     db.refresh(new_medicine)
     return new_medicine
