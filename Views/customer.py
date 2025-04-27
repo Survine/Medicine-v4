@@ -82,4 +82,4 @@ def delete_customer(db: Session, customer_id: int) -> Customer:
     
     db.delete(db_customer)
     db.commit()
-    return db_customer
+    return {"detail": "Customer deleted successfully"}

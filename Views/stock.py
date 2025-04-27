@@ -81,4 +81,4 @@ def delete_stock(db: Session, stock_id: int) -> Stock:
     
     db.delete(db_stock)
     db.commit()
-    return db_stock
+    return {"detail": "Stock deleted successfully"}

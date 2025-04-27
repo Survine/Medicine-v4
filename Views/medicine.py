@@ -24,18 +24,8 @@ def create_new_medicine(db: Session, medicine_data: MedicineCreate) -> Medicine:
         price=medicine_data.price,
     )
     db.add(new_medicine)
-    db.flush()  # Get the ID before committing
-    
-    # Create stock record
-    new_stock = Stock(
-        medicine_id=new_medicine.id,
-        quantity=0  # Default to 0, can be updated later
-    )
-    db.add(new_stock)
-    
     db.commit()
     db.refresh(new_medicine)
-    db.refresh(new_stock)
     return new_medicine
 
 def update_existing_medicine(db: Session, medicine_id: int, medicine_data: MedicineUpdate) -> Medicine:
@@ -69,4 +59,4 @@ def delete_medicine_by_id(db: Session, medicine_id: int) -> Medicine:
 
     db.delete(medicine_to_delete)
     db.commit()
-    return medicine_to_delete
+    return {"detail": "Medicine deleted successfully"}

@@ -100,4 +100,4 @@ def delete_invoice(db: Session, invoice_id: int) -> Invoice:
     
     db.delete(db_invoice)
     db.commit()
-    return db_invoice
+    return {"details": "Invoice deleted successfully"}

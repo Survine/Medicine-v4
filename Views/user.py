@@ -75,4 +75,4 @@ def delete_user(db: Session, user_id: int) -> User:
     
     db.delete(db_user)
     db.commit()
-    return db_user
+    return {"detail": "User deleted successfully"}
